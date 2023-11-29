@@ -22,6 +22,26 @@ export const ContentsWrapper = styled.section`
   color: #fa6400;
 `;
 
+export const ScoreDiv = styled.section`
+  border: 5px solid #e6b143;
+  background-color: #f7f4c8;
+  border-radius: 15px;
+  text-align: left;
+  padding: 0.5vw 2vw 0.5vw 2vw;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Scoreh2 = styled.h4`
+  white-space: nowrap; // 아래줄로 내려가는 것을 막기위해
+  overflow: hidden; // 을 사용해 영역을 감출 것
+  text-overflow: ellipsis; // 로 ... 을 만들기
+`;
+
 export const MyButton = styled.button`
   & {
     appearance: none;

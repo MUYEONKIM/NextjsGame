@@ -12,8 +12,8 @@ const FruitScore = [1, 3, 6, 10, 15, 21, 28, 36, 45, 55];
 // 엔진 스타트
 export default function MyGame(): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [, setScore] = useRecoilState(scoreState);
-  const [name, setName] = useRecoilState(nameState);
+  const [, setScore] = useRecoilState<number>(scoreState);
+  const [name, setName] = useRecoilState<string>(nameState);
   const router = useRouter();
   let currentScore: number = 0;
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function MyGame(): JSX.Element {
 
     // window.onkeydown 으런걸 이용해서 키보드 입력 감지
 
-    window.onkeydown = (event) => {
+    window.onkeydown = (event: any) => {
       // disabledAction으로 중복 키다운 방지
       if (disabledAction) return;
       switch (event.code) {
@@ -133,7 +133,7 @@ export default function MyGame(): JSX.Element {
       }
     };
 
-    window.onkeyup = (event) => {
+    window.onkeyup = (event: any) => {
       switch (event.code) {
         case "KeyA":
           clearInterval(interval);
@@ -146,8 +146,8 @@ export default function MyGame(): JSX.Element {
 
     // collisionStart란 충돌이 되면 실행이 되는 콜백 함수를 불러오는 것
 
-    Events.on(engine, "collisionStart", (event) => {
-      event.pairs.forEach((collision) => {
+    Events.on(engine, "collisionStart", (event: any) => {
+      event.pairs.forEach((collision: any) => {
         // 충돌한 bodyA와 bodyB의 index 가 같다면 즉 충돌한 과일 두개, 물체 두개 라는 뜻
         if (collision.bodyA.index === collision.bodyB.index) {
           // 충돌한 과일의 인덱스를 얻어서 다음 인덱스를 얻기 위해 index를 선언해주는 과정

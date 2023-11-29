@@ -8,7 +8,7 @@ const FruitScore = [1, 3, 6, 10, 15, 21, 28, 36, 45, 55];
 export default function Gamelog(): JSX.Element {
   const router = useRouter();
   const [score] = useRecoilState(scoreState);
-  const [, setName] = useRecoilState(nameState);
+  const [name, setName] = useRecoilState(nameState);
 
   useEffect(() => {
     const name = localStorage.getItem("name");
@@ -19,9 +19,13 @@ export default function Gamelog(): JSX.Element {
   return (
     <S.Wrapper>
       <img src="/score.png" />
+      <S.ScoreDiv>
+        <S.Scoreh2>{name}</S.Scoreh2>
+        <h4>님</h4>
+      </S.ScoreDiv>
       <S.ContentsWrapper>
-        <div>{score}</div>
-        <p>점</p>
+        <h2>{score}</h2>
+        <h2>점</h2>
       </S.ContentsWrapper>
       <img src="/keyboard.png" />
       <S.MyButton onClick={() => router.reload()}>재도전</S.MyButton>
