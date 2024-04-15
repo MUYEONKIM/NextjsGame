@@ -1,38 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![image](https://github.com/MUYEONKIM/NextjsGame/assets/114132468/e429d856-4e0f-44b6-b4d4-2552a556bc62)
 
-## Getting Started
+### 배포 (AWS를 통해 정적파일만 배포)
+## http://nextjs.game.s3-website.ap-northeast-2.amazonaws.com/
 
-First, run the development server:
+## 📙 **개발 내용 요약**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Firebase를 이용한 DB사용 및 랭킹 시스템**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 게임을 하며 사용자들에게 경쟁심을 불어넣기 위해 랭킹 시스템을 도입하면 좋겠다고 생각이 들어 Firebase의 데이터베이스 서비스를 사용해보았습니다. 심도 있는 서비스 까지는 아니지만 직접 사용해본 적은 없던 Firebase 서비스를 처음으로 사용해보며, MySQL, Moongose와 같이 직접 Database를 다뤄보고 싶다는 생각이 들었습니다.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+**Recoil을 이용한 손쉬운 전역 상태 관리**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- 랭킹 시스템을 구현하기 위해 사용자의 닉네임을 함께 랭킹에 추가해주고 싶었습니다. 때문에 상태를 전역적으로 관리해줄 상태 관리 라이브러리의 필요성을 느껴 그 중 가벼운 Recoil을 선정하였습니다.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Matter.js**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- 게임을 만들기 위해 Matter.js 라는 javascript 기반 2D 물리 엔진 라이브러리를 이용해보았습니다.  처음 다뤄보는 라이브러리이기도 하고, 자료도 많이 없어서 다소 낯설어 많은 오류가 발생했었습니다. 허나 여러 문서와 유튜브 강의 및 자료들을 보고 속성을 하나하나 찍어보며, 오류를 수정해 나아갔습니다.
 
-## Learn More
+**Typescript 사용**
 
-To learn more about Next.js, take a look at the following resources:
+- 도입 이후 개발에 **안정성이 증가**하였고 컴파일링 단계에서 에러를 1차 적으로 걸러주기 때문에 
+기존보다 **에러를 처리하는 속도가 빨라졌습니다**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**AWS S3를 이용한 배포**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 여러 사용자들이 이용할 수 있도록 배포를 하기 위해 AWS 서비스를 이용했습니다. 현재 프로젝트는 따로 정적 파일들만 배포하면 다른 사용자들도 서비스를 이용할 수 있을 것이라 생각해 AWS S3을 이용하여 배포하였습니다. 처음으로 직접 배포해 본 사이트의 의미가 매우 컸습니다.
